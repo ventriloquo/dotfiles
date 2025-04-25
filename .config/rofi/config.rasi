@@ -1,0 +1,4 @@
+@theme "tuk"
+configuration {
+  font: "JetBrainsMono 10";
+}

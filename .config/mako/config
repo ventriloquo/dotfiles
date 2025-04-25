@@ -1,0 +1,7 @@
+font=JetBrainsMono 8
+width=200
+background-color=#151515
+border-color=#ffee00
+text-color=#ebebeb
+border-size=2
+default-timeout=5000
