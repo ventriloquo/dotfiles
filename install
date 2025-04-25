@@ -1,0 +1,20 @@
+#!/bin/sh
+
+cp -r .config ~/ &&
+cp repositiories /etc/apk/ &&
+cp support@1password.com-61ddfc31.rsa.pub /etc/apk/keys &&
+
+apk update &&
+apk add p7zip amfora pipewire-pulse pipewire-alsa pipewire-jack pipewire \
+  alsa-utils pulsemixer librewolf mupdf lf neovim git lazygit rofi mako \
+  brightnessctl 1password-cli flatpak wget curl npm udisks2 gvfs dragon-drop \
+  cmus mpv yt-dlp ffmpeg imagemagick hare scdoc nerd-fonts-all font-iosevka \
+  font-jetbrains-mono gpg-tui man-db imv pass pass-otp pinentry-qt pinentry \
+  polkit-openrc polkit-elogind polkit xfce-polkit qpwgraph shadow swaybg \
+  wf-recorder grim slurp wl-clipboard wlsunset clang clang-extra-tools \
+  gcc make dbus-x11 libnotify &&
+
+setup-desktop sway &&
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo &&
+flatpak install https://downloads.1password.com/linux/flatpak/1Password.flatpakref &&
