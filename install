@@ -1,20 +1,33 @@
 #!/bin/sh
 
 cp -r .config ~/ &&
-cp repositiories /etc/apk/ &&
-cp support@1password.com-61ddfc31.rsa.pub /etc/apk/keys &&
 
-apk update &&
-apk add p7zip amfora pipewire-pulse pipewire-alsa pipewire-jack pipewire \
-  alsa-utils pulsemixer librewolf mupdf lf neovim git lazygit rofi mako \
-  brightnessctl 1password-cli flatpak wget curl npm udisks2 gvfs dragon-drop \
-  cmus mpv yt-dlp ffmpeg imagemagick hare scdoc nerd-fonts-all font-iosevka \
-  font-jetbrains-mono gpg-tui man-db imv pass pass-otp pinentry-qt pinentry \
-  polkit-openrc polkit-elogind polkit xfce-polkit qpwgraph shadow swaybg \
-  wf-recorder grim slurp wl-clipboard wlsunset clang clang-extra-tools \
-  gcc make dbus-x11 libnotify &&
+sudo apt update && sudo apt install curl wget gpg &&
 
-setup-desktop sway &&
+# Librewolf
+sudo apt install extrepo -y &&
+sudo extrepo enable librewolf &&
 
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo &&
-flatpak install https://downloads.1password.com/linux/flatpak/1Password.flatpakref &&
+# 1Password
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg &&
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list &&
+sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/ &&
+curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol &&
+sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22 &&
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg &&
+
+# Lazygit
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit -D -t /usr/local/bin/
+
+sudo apt update && sudo apt install -y librewolf 1password 1password-cli sway \
+  foot brightnessctl pulsemixer nnn rofi xwayland alsa-utils cmus mpv \
+  wf-recorder grim slurp git 7zip qpwgraph imagemagick ffmpeg man-db \
+  wl-clipboard fonts-jetbrains-mono &&
+
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip &&
+
+7z x JetBrainsMono.zip && mkdir -p ~/.fonts && mv *.tff ~/.fonts && \
+  sudo fc-cache -fv && rm *.txt *.md
