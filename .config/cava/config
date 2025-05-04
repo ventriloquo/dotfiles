@@ -3,11 +3,11 @@ framerate = 90
 autosens = 1
 
 [output]
-method = sdl
+method = ncurses
 channels = stereo
 ; mono_option = average
 
 [color]
-background = '#151515'
-foreground = '#ffee00'
+background = '#2A2A37'
+foreground = '#957FB8'
 

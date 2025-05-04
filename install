@@ -25,7 +25,7 @@ sudo install lazygit -D -t /usr/local/bin/
 sudo apt update && sudo apt install -y librewolf 1password 1password-cli sway \
   foot brightnessctl pulsemixer nnn rofi xwayland alsa-utils cmus mpv \
   wf-recorder grim slurp git 7zip qpwgraph imagemagick ffmpeg man-db \
-  wl-clipboard fonts-jetbrains-mono &&
+  wl-clipboard fonts-jetbrains-mono playerctl cava &&
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip &&
 

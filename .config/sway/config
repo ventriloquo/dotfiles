@@ -44,7 +44,8 @@ bar {
 
 
 ### Wallpaper ###
-output * bg $3 solid_color
+# output * bg $3 solid_color
+output * bg bg0.png fill
 
 ### Output configuration
 #
@@ -113,8 +114,8 @@ bindsym $mod+o output $DISPLAY1 toggle
     bindsym $mod+r reload
 
     # Volume e brilho
-    bindsym XF86AudioRaiseVolume exec amixer set Master 1000+
-    bindsym XF86AudioLowerVolume exec amixer set Master 1000-
+    bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+    bindsym XF86AudioLowerVolume exec amixer set Master 5%-
     bindsym XF86AudioMute exec amixer set Master toggle
     bindsym XF86MonBrightnessUp exec brightnessctl s 3%+
     bindsym XF86MonBrightnessDown exec brightnessctl s 3%-
