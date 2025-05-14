@@ -1,4 +1,0 @@
-@theme "kanagawa"
-configuration {
-  font: "JetBrainsMono 10";
-}
