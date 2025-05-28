@@ -1,18 +1,7 @@
 #!/bin/sh
 
-cp -r .config ~/ &&
-
-sudo apt update && sudo apt install -y curl wget gpg &&
-
-# Librewolf
-sudo apt install extrepo -y &&
-sudo extrepo enable librewolf &&
-
-sudo apt update && sudo apt install -y librewolf emacs \
-  alsa-utils mpv git 7zip qpwgraph imagemagick ffmpeg man-db \
-  fonts-jetbrains-mono playerctl cava &&
-
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip &&
-
-7z x JetBrainsMono.zip && mkdir -p ~/.fonts && mv *.tff ~/.fonts && \
-  sudo fc-cache -fv && rm *.txt *.md
+sudo xbps-install -Syu nerd-fonts emacs-gtk3 neovim p7zip \
+  git curl wget lazygit keepassxc xclip font-iosevka \
+  gcc make libX11-devel libXcursor-devel ripgrep gnupg \
+  libXrandr-devel libXinerama-devel libXi-devel mupdf \
+  galculator xfce4-screenshooter
