@@ -4,4 +4,11 @@ sudo xbps-install -Syu nerd-fonts emacs-gtk3 neovim p7zip \
   git curl wget lazygit keepassxc xclip font-iosevka \
   gcc make libX11-devel libXcursor-devel ripgrep gnupg \
   libXrandr-devel libXinerama-devel libXi-devel mupdf \
-  galculator xfce4-screenshooter
+  galculator xfce4-screenshooter xarchiver
+
+# Jekyll
+sudo xbps-install -Sy ruby ruby-devel
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+gem install jekyll
