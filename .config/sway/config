@@ -4,7 +4,7 @@ set $filemanager foot nnn -deixH
 
 ### Configurações gerais ###
 exec_always swaymsg default_border pixel 2
-font pango:jetbrainsmono 8
+font pango:iosevka 8
 titlebar_padding 1
 titlebar_border_thickness 1
 default_floating_border none

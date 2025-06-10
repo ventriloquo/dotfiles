@@ -1,4 +1,4 @@
 @theme "kanagawa"
 configuration {
-  font: "JetBrainsMono 10";
+  font: "Iosevka 10";
 }
