@@ -1,0 +1,14 @@
+#!/bin/sh
+
+echo "Configurando serviços"
+
+rc-update add --quiet udev sysinit
+rc-update add --quiet udev-trigger sysinit
+rc-update add --quiet udev-settle sysinit
+rc-update add --quiet udev-postmount default
+rc-update add --quiet polkit sysinit
+rc-update add --quiet lightdm
+rc-service --ifstopped udev start
+rc-service --ifstopped udev-trigger start
+rc-service --ifstopped udev-settle start
+rc-service --ifstopped udev-postmount start

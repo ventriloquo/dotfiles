@@ -1,0 +1,4 @@
+/.config/*
+!/.config/Mousepad
+!/.config/autostart
+!/.config/xfce4

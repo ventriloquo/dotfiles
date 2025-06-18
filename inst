@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "Instalando pacotes"
+
+doas apk add --no-network pkgs/*
+
+echo "Adicionando configurações"
+
+cp -r .config .bash* ~/
+
+mkdir -p ~/.themes
+mkdir -p ~/.icons

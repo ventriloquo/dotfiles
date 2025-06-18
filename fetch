@@ -1,0 +1,30 @@
+#!/bin/sh
+
+echo "Atualizando pacotes..."
+
+[ -e "pkgs" ] && rm -rf pkgs
+mkdir pkgs
+
+apk fetch -R git lazygit xfce4 eudev polkit xfce-polkit \
+	polkit-openrc udev-init-scripts udev-init-scripts-openrc \
+	mousepad xfce4-screenshooter xfce4-screenshooter-imgur \
+	tumbler ffmpegthumbnailer keepassxc emacs-x11 \
+ 	xfce4-pulseaudio-plugin xfce4-taskmanager \
+	xfce4-power-manager xfce4-notes-plugin brightnessctl \
+	brightnessctl-openrc xfce4-calculator-plugin \
+	xfce4-clipman-plugin xfce4-appfinder galculator xarchiver \
+	p7zip mpv yt-dlp imagemagick greybird-themes \
+	papirus-icon-theme ristretto pipewire pipewire-alsa \
+	pipewire-jack pipewire-pulse pavucontrol audacious \
+	librewolf udisks2 gvfs font-iosevka nerd-fonts-all \
+	font-noto font-noto-cjk font-noto-extra font-noto-emoji \
+	make gcc mupdf elogind elogind-openrc ffmpeg raylib-dev \
+	ripgrep jq mugshot pandoc pinentry-gtk polkit-elogind \
+	hare scdoc shadow dbus-x11 xfce4-places-plugin \
+	xfce4-statusnotifier-plugin xfce4-whiskermenu-plugin \
+	libqrencode-tools xorg-server xf86-input-libinput xinit \
+	mesa-dri-gallium xfce4-screensaver eudev-openrc \
+	lightdm lightdm-openrc yad yad-doc xfce4-notifyd xclip \
+	man-db gparted transmission-gtk hexchat texlive-full
+
+mv *.apk pkgs
