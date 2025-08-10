@@ -1,25 +1,23 @@
-<?xml version="1.1" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="xfce4-terminal" version="1.0">
-  <property name="color-foreground" type="string" value="#c0c0c0"/>
-  <property name="color-background" type="string" value="#000000"/>
-  <property name="color-cursor" type="string" value="#c0c0c0c0c0c0"/>
-  <property name="color-selection" type="string" value="#ffffffffffff"/>
+  <property name="color-foreground" type="string" value="#fcfce8e8c3c3"/>
+  <property name="color-background" type="string" value="#1c1c1b1b1919"/>
+  <property name="color-cursor" type="string" value="#fbfbb8b82929"/>
+  <property name="color-selection" type="string" value=""/>
   <property name="color-selection-use-default" type="bool" value="true"/>
   <property name="color-bold" type="string" value=""/>
   <property name="color-bold-use-default" type="bool" value="true"/>
-  <property name="color-palette" type="string" value="#000000000000;#808000000000;#000080800000;#808080800000;#000000008080;#808000008080;#000080808080;#c0c0c0c0c0c0;#808080808080;#ffff00000000;#0000ffff0000;#ffffffff0000;#0000ffffffff;#ffff0000ffff;#00000000ffff;#ffffffffffff"/>
-  <property name="font-name" type="string" value="DejaVu Sans Mono 10"/>
+  <property name="color-palette" type="string" value="#1c1c1b1b1919;#efef2f2f2727;#51519f9f5050;#fbfbb8b82929;#2c2c7878bfbf;#e0e02c2c6d6d;#0a0aaeaeb3b3;#babaa6a67f7f;#919181817575;#f7f753534141;#9898bcbc3737;#fefed0d06e6e;#6868a8a8e4e4;#ffff5c5c8f8f;#2b2be4e4d0d0;#fcfce8e8c3c3"/>
+  <property name="font-name" type="string" value="JetBrains Mono 10"/>
   <property name="tab-activity-color" type="string" value="#aa0000"/>
-  <property name="scrolling-bar" type="string" value="TERMINAL_SCROLLBAR_NONE"/>
-  <property name="scrolling-unlimited" type="bool" value="true"/>
-  <property name="misc-menubar-default" type="bool" value="true"/>
-  <property name="misc-toolbar-default" type="bool" value="true"/>
-  <property name="color-use-theme" type="bool" value="false"/>
   <property name="color-background-vary" type="bool" value="false"/>
   <property name="color-cursor-foreground" type="string" value=""/>
-  <property name="color-cursor-use-default" type="bool" value="true"/>
+  <property name="color-cursor-use-default" type="bool" value="false"/>
   <property name="color-selection-background" type="string" value=""/>
   <property name="color-bold-is-bright" type="bool" value="true"/>
-  <property name="font-use-system" type="bool" value="true"/>
+  <property name="color-use-theme" type="bool" value="false"/>
+  <property name="scrolling-unlimited" type="bool" value="true"/>
+  <property name="scrolling-bar" type="string" value="TERMINAL_SCROLLBAR_NONE"/>
+  <property name="misc-menubar-default" type="bool" value="false"/>
 </channel>
