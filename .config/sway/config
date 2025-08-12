@@ -20,10 +20,10 @@ exec_always wlsunset -t 3500 -s 18:00 -S 5:30
 exec_always mako
 
 ### Configuração da paleta de cores ###
-set $0 #181818
-set $1 #ffdd33
-set $2 #e4e4ef
-set $3 #282828
+set $0 #1c1b19
+set $1 #fbb829
+set $2 #fce8c3
+set $3 #262626
 
 client.focused           $1        $1    $0     $1         $1
 client.focused_inactive  $3        $0    $2     $3         $3
