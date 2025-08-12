@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "Configurando setup..." && \
+  sudo apt update && \
+  sudo apt install extrepo -y && \
+  sudo extrepo enable librewolf && \
+  sudo apt update && \
+  sudo apt install -y \
+  librewolf sway swaybg \
+  swayidle grim slurp \
+  wf-recorder pulsemixer \
+  cmus cava playerctl tofi \
+  foot nnn wl-clipboard \
+  mpv imv htop keepassxc \
+  qpwgraph scdoc gcc make \
+  wine xwayland git wget curl \
+  brightnessctl
+
+cp -r .bashrc ~/
+cp -r .config ~/
+cp -r .local ~/
