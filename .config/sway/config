@@ -44,7 +44,7 @@ bar {
 
 
 ### Wallpaper ###
-output * bg /home/john/Pictures/Wallpapers/navy-cow-print-pattern-desktop-wallpaper-4k.jpg fill
+output * bg $3 solid_color
 
 ### Output configuration
 #

@@ -15,7 +15,8 @@ echo "Configurando setup..." && \
   qpwgraph scdoc gcc make \
   wine xwayland git wget curl \
   brightnessctl fonts-jetbrains-mono \
-  unzip imagemagick pandoc mupdf bc
+  unzip imagemagick pandoc mupdf bc \
+  stow
 
 mkdir ~/.fonts
 
