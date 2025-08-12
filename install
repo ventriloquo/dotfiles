@@ -16,7 +16,7 @@ echo "Configurando setup..." && \
   wine xwayland git wget curl \
   brightnessctl fonts-jetbrains-mono \
   unzip imagemagick pandoc mupdf bc \
-  stow
+  stow bat eza
 
 mkdir ~/.fonts
 
@@ -27,5 +27,8 @@ unzip JetBrainsMono.zip -d ~/.fonts
 sudo fc-cache -frv
 
 cp -r .bashrc ~/
+cp -r .bash_aliases ~/
 cp -r .config ~/
 cp -r .local ~/
+
+sudo adduser $(whoami) video
