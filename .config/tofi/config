@@ -1,0 +1,12 @@
+text-cursor=true
+fuzzy-match=true
+font="JetBrains Mono"
+font-size=12
+background-color=#181818
+outline-width=0
+border-width=2
+border-color=#ffdd33
+text-color=#e4e4ef
+selection-color=#ffdd33
+width=70%
+height=70%

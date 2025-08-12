@@ -1,0 +1,13 @@
+[general]
+framerate = 90
+autosens = 1
+
+[output]
+method = ncurses
+channels = stereo
+; mono_option = average
+
+[color]
+background = '#151515'
+foreground = '#ffee00'
+
