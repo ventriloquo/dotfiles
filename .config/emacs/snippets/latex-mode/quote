@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: quote
+# key: q
+# --
+\begin{quote}
+$1
+\end{quote}
+$0
