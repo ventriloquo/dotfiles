@@ -16,7 +16,7 @@ echo "Configurando setup..." && \
   wine xwayland git wget curl \
   brightnessctl fonts-jetbrains-mono \
   unzip imagemagick pandoc mupdf bc \
-  stow bat eza
+  stow bat eza wlsunset
 
 mkdir ~/.fonts
 

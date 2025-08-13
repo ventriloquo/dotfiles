@@ -1,8 +1,16 @@
+### Configurações gerais:
+
+# Variáveis
 set $mod Mod4
 set $web librewolf
 set $filemanager foot ranger
 
-### Configurações gerais ###
+set $Left  h
+set $Down  j
+set $Up    k
+set $Right l
+
+# Definições básicas do ambiente
 exec_always swaymsg default_border pixel 2
 font pango:jetbrainsmono 8
 titlebar_padding 1
@@ -15,36 +23,40 @@ exec export MOZ_ENABLE_WAYLAND=1
 seat seat0 hide_cursor 3000
 seat seat0 hide_cursor when-typing enable
 
-### Inicialização de programas ###
+# Inicialização de programas
 exec_always wlsunset -t 3500 -s 18:00 -S 5:30
 exec_always mako
 
-### Configuração da paleta de cores ###
+# Configuração da paleta de cores
 set $0 #1c1b19
 set $1 #fbb829
 set $2 #fce8c3
 set $3 #262626
 
-client.focused           $1        $1    $0     $1         $1
-client.focused_inactive  $3        $0    $2     $3         $3
-client.unfocused         $3        $0    $2     $3         $3
+client.focused           $1  $1  $0  $1  $1
+client.focused_inactive  $3  $0  $2  $3  $3
+client.unfocused         $3  $0  $2  $3  $3
 client.background        $0
 
+# Configuração da Swaybar
 bar {
-    position top
-    status_command while echo $(date +'%d/%m/%Y | %R')\ \|\ $(cat /sys/class/power_supply/BAT0/capacity)%\ ; do sleep 1; done
+  position top
+  status_command while echo $(date +'%d/%m/%Y | %R')\ \|\ $(cat /sys/class/power_supply/BAT0/capacity)%\ ; do sleep 1; done
 
-    colors {
-        statusline $2
-        background $0
-        focused_workspace $0 $0 $1
-        inactive_workspace $0 $0 $2
-    }
+  colors {
+    statusline $2
+    background $0
+    focused_workspace $0 $0 $1
+    inactive_workspace $0 $0 $2
+  }
 }
 
+# Swaylock
+set $lock swaylock --color \#1c1b19 --font jetbrainsmono --indicator-idle-visible -eFl
+bindsym Ctrl+Alt+l exec $lock
 
-### Wallpaper ###
-output * bg $3 solid_color
+### Wallpaper/Background:
+output * bg ~/.config/sway/srcery-wallpaper.png fill
 
 ### Output configuration
 #
@@ -54,175 +66,165 @@ output * bg $3 solid_color
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-# Displays
+### Configurações de Mouse/Touchpad:
 
-set $DISPLAY1 eDP-1
-set $DISPLAY2 HDMI-A-1
+input type:pointer {
+  dwt disabled
+  natural_scroll disabled
+}
 
-bindsym $mod+o output $DISPLAY1 toggle
+input type:touchpad {
+  dwt enabled
+  tap enabled
+  natural_scroll disabled
+  middle_emulation enabled
+}
 
-### Touchpad
+### Gestos:
 
-    input type:touchpad {
-           dwt enabled
-           tap enabled
-           natural_scroll disabled
-           middle_emulation enabled
-    }
+bindgesture swipe:left workspace prev
+bindgesture swipe:right workspace next
+bindgesture pinch:inward+up move up
+bindgesture pinch:inward+down move down
+bindgesture pinch:inward+left move left
+bindgesture pinch:inward+right move right
 
-    input type:pointer {
-           dwt disabled
-           natural_scroll disabled
-    }
+### Configurações de teclado:
 
-### Gestos
+input type:keyboard {
+  xkb_options caps:escape
+  xkb_layout br
+}
 
-    bindgesture swipe:left workspace prev
-    bindgesture swipe:right workspace next
-    bindgesture pinch:inward+up move up
-    bindgesture pinch:inward+down move down
-    bindgesture pinch:inward+left move left
-    bindgesture pinch:inward+right move right
+### Teclas de atalho:
 
-### Teclado
+# Abrir terminal
+bindsym $mod+Return exec foot
 
-    input type:keyboard {
-      xkb_options caps:ctrl_modifier
-      xkb_layout br
-    }
+# Abrir navegador
+bindsym $mod+w exec $web
 
-### Teclas de atalho
+# Fechar janela
+bindsym $mod+q kill
 
-    # Abrir terminal
-    bindsym $mod+Return exec foot
+# menu
+bindsym $mod+p exec tofi-run
+bindsym $mod+d exec tofi-drun
 
-    # Abrir navegador
-    bindsym $mod+w exec $web
+# Abrir gerenciador de arquivos
+bindsym $mod+e exec $filemanager
 
-    # Fechar janela
-    bindsym $mod+q kill
+# Reiniciar Sway
+bindsym $mod+r reload
 
-    # menu
-    bindsym $mod+p exec tofi-run
-    bindsym $mod+d exec tofi-drun
+# Sair do Sway
+bindsym Ctrl+Alt+Backspace exec swaymsg exit
 
-    # Abrir gerenciador de arquivos
-    bindsym $mod+e exec $filemanager
+# Volume e brilho
+bindsym XF86AudioRaiseVolume  exec amixer set Master 5%+
+bindsym XF86AudioLowerVolume  exec amixer set Master 5%-
+bindsym XF86AudioMute         exec amixer set Master toggle
+bindsym XF86MonBrightnessUp   exec brightnessctl s 3%+
+bindsym XF86MonBrightnessDown exec brightnessctl s 3%-
 
-    # Reiniciar sway
-    bindsym $mod+r reload
+bindsym $mod+F3  exec amixer set Master 5%+
+bindsym $mod+F2  exec amixer set Master 5%-
+bindsym $mod+F1  exec amixer set Master toggle
+bindsym $mod+F12 exec brightnessctl s 3%+
+bindsym $mod+F11 exec brightnessctl s 3%-
 
-    # Volume e brilho
-    bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-    bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-    bindsym XF86AudioMute exec amixer set Master toggle
-    bindsym XF86MonBrightnessUp exec brightnessctl s 3%+
-    bindsym XF86MonBrightnessDown exec brightnessctl s 3%-
-    bindsym $mod+F3 exec amixer set Master 5%+
-    bindsym $mod+F2 exec amixer set Master 5%-
-    bindsym $mod+F1 exec amixer set Master toggle
-    bindsym $mod+F12 exec brightnessctl s 3%+
-    bindsym $mod+F11 exec brightnessctl s 3%-
+# Abrir pulsemixer
+for_window [title="mixer"] floating enable, resize set 900px 400px, move position center
+bindsym $mod+a exec foot -T mixer pulsemixer
 
-    # Abrir pulsemixer
-    for_window [title="mixer"] floating enable, resize set 900px 400px, move position center
-    bindsym $mod+a exec foot -T mixer pulsemixer
+# Screenshot
+bindsym Print exec grim
+bindsym Shift+Print exec grim -g "$(slurp)"
+bindsym Alt+Print exec grim - | wl-copy
+bindsym Alt+Shift+Print exec grim -g "$(slurp)" - | wl-copy
 
-    # Screenshot
-    bindsym Print exec grim
-    bindsym Shift+Print exec grim -g "$(slurp)"
+# Gravar tela
+bindsym Ctrl+Shift+Print exec foot wf-recorder -x yuv420p -a -f out.mp4
 
-    # Gravar tela
-    bindsym Ctrl+Shift+Print exec foot wf-recorder -x yuv420p -a -f out.mp4
+# cmus
+bindsym $mod+m exec foot cmus
 
-    # cmus
-    bindsym $mod+m exec foot cmus
+# cava
+bindsym $mod+c exec foot cava
 
-    # cava
-    bindsym $mod+c exec foot cava
+# Controlar reprodução de mídia
+bindcode 172 exec playerctl play-pause
+bindcode 174 exec playerctl stop
+bindcode 173 exec playerctl previous
+bindcode 171 exec playerctl next
+bindcode 209 exec playerctl play-pause
+bindcode 208 exec playerctl play-pause
 
-    # Controlar reprodução de mídia
-    bindcode 172 exec playerctl play-pause
-    bindcode 174 exec playerctl stop
-    bindcode 173 exec playerctl previous
-    bindcode 171 exec playerctl next
-    bindcode 209 exec playerctl play-pause
-    bindcode 208 exec playerctl play-pause
+# Keepass
+for_window [title="KeePassXC"] floating enable, resize set 1100px 600px, move position center
+bindsym $mod+s exec keepassxc
 
-    # Keepass
-    for_window [title="KeePassXC"] floating enable, resize set 1100px 600px, move position center
-    bindsym $mod+s exec keepassxc
+### Movimentação:
 
-    # Sair do sway
-    bindsym $mod+Alt+q exec $nag 'Você realmente quer sair do sway?' -B 'Sim.' 'swaymsg exit'
+# Arrastar e redimensionar janelas flutuantes com o mouse
+floating_modifier $mod normal
 
-### Movimentação
+# Alterar foco entre janelas
+bindsym $mod+$Left focus left
+bindsym $mod+$Down focus down
+bindsym $mod+$Up focus up
+bindsym $mod+$Right focus right
 
-    # Arrastar e redimensionar janelas flutuantes com o mouse
-    floating_modifier $mod normal
+# Alterar o tamanho da janela
+bindsym $mod+Ctrl+$Right resize grow width
+bindsym $mod+Ctrl+$Down resize grow height
+bindsym $mod+Ctrl+$Left resize shrink width
+bindsym $mod+Ctrl+$Up resize shrink height
 
-    set $Left  h
-    set $Down  j
-    set $Up    k
-    set $Right l
-
-    # Alterar foco entre janelas
-    bindsym $mod+$Left focus left
-    bindsym $mod+$Down focus down
-    bindsym $mod+$Up focus up
-    bindsym $mod+$Right focus right
-
-    # Alterar o tamanho da janela
-    bindsym $mod+Ctrl+$Right resize grow width
-    bindsym $mod+Ctrl+$Down resize grow height
-    bindsym $mod+Ctrl+$Left resize shrink width
-    bindsym $mod+Ctrl+$Up resize shrink height
-
-    # Movimentar janelas
-    bindsym $mod+Alt+$Left move left
-    bindsym $mod+Alt+$Down move down
-    bindsym $mod+Alt+$Up move up
-    bindsym $mod+Alt+$Right move right
-
+# Movimentar janelas
+bindsym $mod+Alt+$Left move left
+bindsym $mod+Alt+$Down move down
+bindsym $mod+Alt+$Up move up
+bindsym $mod+Alt+$Right move right
 
 ### Workspaces:
 
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
-    # Move focused container to workspace
-    bindsym $mod+Alt+1 move container to workspace number 1
-    bindsym $mod+Alt+2 move container to workspace number 2
-    bindsym $mod+Alt+3 move container to workspace number 3
-    bindsym $mod+Alt+4 move container to workspace number 4
-    bindsym $mod+Alt+5 move container to workspace number 5
-    bindsym $mod+Alt+6 move container to workspace number 6
-    bindsym $mod+Alt+7 move container to workspace number 7
-    bindsym $mod+Alt+8 move container to workspace number 8
-    bindsym $mod+Alt+9 move container to workspace number 9
-    bindsym $mod+Alt+0 move container to workspace number 10
+# Move focused container to workspace
+bindsym $mod+Alt+1 move container to workspace number 1
+bindsym $mod+Alt+2 move container to workspace number 2
+bindsym $mod+Alt+3 move container to workspace number 3
+bindsym $mod+Alt+4 move container to workspace number 4
+bindsym $mod+Alt+5 move container to workspace number 5
+bindsym $mod+Alt+6 move container to workspace number 6
+bindsym $mod+Alt+7 move container to workspace number 7
+bindsym $mod+Alt+8 move container to workspace number 8
+bindsym $mod+Alt+9 move container to workspace number 9
+bindsym $mod+Alt+0 move container to workspace number 10
 
 ### Layout stuff:
 
-    bindsym $mod+x layout tabbed 
-    bindsym $mod+z layout toggle split
-    bindsym $mod+comma splitv
-    bindsym $mod+period splith
-    bindsym $mod+f fullscreen
-    bindsym $mod+Tab floating toggle
-    bindsym Alt+Tab focus mode_toggle
+bindsym $mod+x layout tabbed 
+bindsym $mod+z layout toggle split
+bindsym $mod+comma splitv
+bindsym $mod+period splith
+bindsym $mod+f fullscreen
+bindsym $mod+Tab floating toggle
+bindsym Alt+Tab focus mode_toggle
 
 ### Scratchpad:
 
-    bindsym $mod+Alt+minus move scratchpad
-    bindsym $mod+minus scratchpad show
+bindsym $mod+Alt+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
