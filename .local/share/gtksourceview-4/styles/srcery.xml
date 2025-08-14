@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="srcery" _name="Srcery" version="1.0">
+  <author>Tukain</author>
+  <_description>Color scheme using Srcery color palette</_description>
+
+  <!-- Palette -->
+  <color name="white"      value="#fce8c3"/>
+  <color name="black"      value="#1c1b19"/>
+  <color name="blue"       value="#2c78bf"/>
+  <color name="magenta"    value="#ff5c8f"/>
+  <color name="cyan"       value="#0aaeb3"/>
+  <color name="gray"       value="#262626"/>
+  <color name="comment"    value="#707070"/>
+  <color name="green"      value="#519f50"/>
+  <color name="red"        value="#ef2f27"/>
+  <color name="yellow"     value="#fbb829"/>
+  <color name="purple"     value="#e02c6d"/>
+
+  <!-- Global Settings -->
+  <style name="text"                        foreground="white" background="black" />
+  <style name="line-numbers"                background="gray"/>
+  <style name="current-line"                background="gray"/>
+  <style name="current-line-number"         background="gray"/>
+  <style name="draw-spaces"                 foreground="#303030"/>
+  <style name="background-pattern"          background="#303030"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               foreground="yellow" background="gray"/>
+  <style name="bracket-mismatch"            foreground="white" background="red"/>
+
+  <!-- Right Margin -->
+  <style name="right-margin"                foreground="#000000" background="#000000"/>
+
+  <!-- Search Matching -->
+  <style name="search-match"                background="yellow"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="comment"/>
+  <style name="def:shebang"                 foreground="blue" bold="true"/>
+  <style name="def:doc-comment-element"     italic="true"/>
+
+  <!-- Constants -->
+  <style name="def:constant"                foreground="yellow"/>
+  <style name="def:special-char"            foreground="yellow"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="cyan"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="red" bold="true"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="blue" bold="true"/>
+
+  <!-- Markup -->
+  <style name="def:emphasis"                italic="true"/>
+  <style name="def:strong-emphasis"         bold="true"/>
+  <style name="def:inline-code"             foreground="cyan"/>
+  <style name="def:insertion"               underline="single"/>
+  <style name="def:deletion"                strikethrough="true"/>
+  <style name="def:link-text"               foreground="blue"/>
+  <style name="def:link-symbol"             foreground="blue" bold="true"/>
+  <style name="def:link-destination"        italic="true" underline="single"/>
+  <style name="def:heading"                 foreground="green" bold="true"/>
+  <style name="def:thematic-break"          foreground="green" bold="true"/>
+  <style name="def:preformatted-section"    foreground="cyan"/>
+
+  <!-- Others -->
+  <style name="def:preprocessor"            foreground="purple"/>
+  <style name="def:error"                   foreground="black" background="red"/>
+  <style name="def:warning"                 foreground="black" background="yellow"/>
+  <style name="def:note"                    foreground="black" background="blue"/>
+  <style name="def:net-address"             italic="true" underline="single"/>
+
+</style-scheme>
