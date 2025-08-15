@@ -108,8 +108,8 @@ bindsym $mod+w exec $web
 bindsym $mod+q kill
 
 # menu
-bindsym $mod+p exec tofi-run
-bindsym $mod+d exec tofi-drun
+bindsym $mod+p exec tofi-run  | sh
+bindsym $mod+d exec tofi-drun | sh
 
 # Abrir gerenciador de arquivos
 bindsym $mod+e exec $filemanager

@@ -10,7 +10,7 @@ echo "Configurando setup..." && \
   swayidle grim slurp \
   wf-recorder pulsemixer \
   cmus cava playerctl tofi \
-  foot ranger wl-clipboard \
+  foot wl-clipboard cargo \
   mpv imv htop keepassxc \
   qpwgraph scdoc gcc make \
   wine xwayland git wget curl \
