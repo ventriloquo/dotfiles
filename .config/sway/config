@@ -3,7 +3,7 @@
 # Variáveis
 set $mod Mod4
 set $web librewolf
-set $filemanager foot ranger
+set $filemanager foot yazi
 
 set $Left  h
 set $Down  j
