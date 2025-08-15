@@ -1,0 +1,11 @@
+#!/bin/sh
+
+RUNCMD=tofi
+PROMPTFLAG=--prompt-text
+SELECTED_OPTION=$(printf "Desligar\nReiniciar\nCancelar" | $RUNCMD $PROMPTFLAG "Selecione ")
+
+case $SELECTED_OPTION in
+  "Desligar") poweroff;;
+  "Reiniciar") reboot;;
+  *) exit;;
+esac

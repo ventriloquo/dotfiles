@@ -98,6 +98,15 @@ input type:keyboard {
 
 ### Teclas de atalho:
 
+# Controle de energia
+bindsym $mod+Delete exec powermgr
+
+# Reiniciar Sway
+bindsym $mod+r reload
+
+# Sair do Sway
+bindsym Ctrl+Alt+Backspace exec swaymsg exit
+
 # Abrir terminal
 bindsym $mod+Return exec foot
 
@@ -113,12 +122,6 @@ bindsym $mod+d exec tofi-drun | sh
 
 # Abrir gerenciador de arquivos
 bindsym $mod+e exec $filemanager
-
-# Reiniciar Sway
-bindsym $mod+r reload
-
-# Sair do Sway
-bindsym Ctrl+Alt+Backspace exec swaymsg exit
 
 # Volume e brilho
 bindsym XF86AudioRaiseVolume  exec amixer set Master 5%+
