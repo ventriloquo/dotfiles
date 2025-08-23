@@ -1,7 +1,5 @@
 .config/*
-!.config/Mousepad
 !.config/autostart
-!.config/xfce4
 !.config/sway
 !.config/foot
 !.config/tofi
