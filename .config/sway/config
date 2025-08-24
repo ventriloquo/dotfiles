@@ -42,7 +42,7 @@ client.background        $0
 # Configuração da Swaybar
 bar {
   position top
-  status_command while echo $(date +'%d/%m/%Y | %R')\ \|\ $(cat /sys/class/power_supply/BAT0/capacity)%\ ; do sleep 1; done
+  status_command while echo $(~/.local/bin/status_bar); do sleep 1; done
 
   colors {
     statusline $2
@@ -159,15 +159,15 @@ bindsym $mod+c exec foot cava
 # Controlar reprodução de mídia
 bindcode 172 exec playerctl play-pause
 bindcode 174 exec playerctl stop
-bindcode 173 exec playerctl previous && notify-send "Playing now:" "$(playerctl metadata xesam:artist) - $(playerctl metadata xesam:title)"
-bindcode 171 exec playerctl next && notify-send "Playing now:" "$(playerctl metadata xesam:artist) - $(playerctl metadata xesam:title)"
+bindcode 173 exec playerctl previous    && notify-send "Playing now:" "$(playerctl metadata xesam:artist)\n\n$(playerctl metadata xesam:title)"
+bindcode 171 exec playerctl next        && notify-send "Playing now:" "$(playerctl metadata xesam:artist)\n\n$(playerctl metadata xesam:title)"
 bindcode 209 exec playerctl play-pause
 bindcode 208 exec playerctl play-pause
 
 bindsym $mod+F5 exec playerctl play-pause
 bindsym $mod+F6 exec playerctl stop
-bindsym $mod+F7 exec playerctl previous && notify-send "Playing now:" "$(playerctl metadata xesam:artist) - $(playerctl metadata xesam:title)"
-bindsym $mod+F8 exec playerctl next     && notify-send "Playing now:" "$(playerctl metadata xesam:artist) - $(playerctl metadata xesam:title)"
+bindsym $mod+F7 exec playerctl previous && notify-send "Playing now:" "$(playerctl metadata xesam:artist)\n\n$(playerctl metadata xesam:title)"
+bindsym $mod+F8 exec playerctl next     && notify-send "Playing now:" "$(playerctl metadata xesam:artist)\n\n$(playerctl metadata xesam:title)"
 
 # Keepass
 for_window [title="KeePassXC"] floating enable, resize set 1100px 600px, move position center
@@ -179,22 +179,22 @@ bindsym $mod+s exec keepassxc
 floating_modifier $mod normal
 
 # Alterar foco entre janelas
-bindsym $mod+$Left focus left
-bindsym $mod+$Down focus down
-bindsym $mod+$Up focus up
-bindsym $mod+$Right focus right
+bindsym $mod+$Left        focus left
+bindsym $mod+$Down        focus down
+bindsym $mod+$Up          focus up
+bindsym $mod+$Right       focus right
 
 # Alterar o tamanho da janela
-bindsym $mod+Ctrl+$Right resize grow width
-bindsym $mod+Ctrl+$Down resize grow height
-bindsym $mod+Ctrl+$Left resize shrink width
-bindsym $mod+Ctrl+$Up resize shrink height
+bindsym $mod+Ctrl+$Right  resize grow width
+bindsym $mod+Ctrl+$Down   resize grow height
+bindsym $mod+Ctrl+$Left   resize shrink width
+bindsym $mod+Ctrl+$Up     resize shrink height
 
 # Movimentar janelas
-bindsym $mod+Alt+$Left move left
-bindsym $mod+Alt+$Down move down
-bindsym $mod+Alt+$Up move up
-bindsym $mod+Alt+$Right move right
+bindsym $mod+Alt+$Left    move left
+bindsym $mod+Alt+$Down    move down
+bindsym $mod+Alt+$Up      move up
+bindsym $mod+Alt+$Right   move right
 
 ### Workspaces:
 
@@ -224,16 +224,16 @@ bindsym $mod+Alt+0 move container to workspace number 10
 
 ### Layout stuff:
 
-bindsym $mod+x layout tabbed 
-bindsym $mod+z layout toggle split
-bindsym $mod+comma splitv
+bindsym $mod+x      layout tabbed
+bindsym $mod+z      layout toggle split
+bindsym $mod+comma  splitv
 bindsym $mod+period splith
-bindsym $mod+f fullscreen
-bindsym $mod+Tab floating toggle
-bindsym Alt+Tab focus mode_toggle
+bindsym $mod+f      fullscreen
+bindsym $mod+Tab    floating toggle
+bindsym Alt+Tab     focus mode_toggle
 
 ### Scratchpad:
 
-bindsym $mod+Alt+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+Alt+minus  move scratchpad
+bindsym $mod+minus      scratchpad show
 

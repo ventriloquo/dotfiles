@@ -1,0 +1,9 @@
+#!/bin/sh
+
+VOLUME_SRC=$(amixer | tail -n8 | head -n2 | awk '{print $5}' | tr "[]%" " " | xargs | tr " " "+")
+VOLUME=AUD-[$(echo "($VOLUME_SRC)/2" | bc)%]
+DATE=$(date +'%d/%m/%Y | %R')
+BATTERY=BAT-[$(cat /sys/class/power_supply/BAT0/capacity)%]
+BRIGHTNESS=BRI-[$(brightnessctl | tail -n3 | head -n1 | awk '{print $4}' | tr "()" " " | xargs)]
+
+echo "$VOLUME | $BRIGHTNESS | $BATTERY | $DATE"
