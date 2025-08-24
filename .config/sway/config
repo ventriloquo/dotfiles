@@ -26,6 +26,7 @@ seat seat0 hide_cursor when-typing enable
 # Inicialização de programas
 exec_always wlsunset -t 3500 -s 18:00 -S 5:30
 exec_always mako
+# exec_always autotiling -l 2
 
 # Configuração da paleta de cores
 set $0 #1c1b19
@@ -56,7 +57,7 @@ set $lock swaylock --color \#1c1b19 --font jetbrainsmono --indicator-idle-visibl
 bindsym Ctrl+Alt+l exec $lock
 
 ### Wallpaper/Background:
-output * bg ~/.config/sway/srcery-wallpaper.png fill
+output * bg #1c1b19 solid_color
 
 ### Output configuration
 #
@@ -158,10 +159,15 @@ bindsym $mod+c exec foot cava
 # Controlar reprodução de mídia
 bindcode 172 exec playerctl play-pause
 bindcode 174 exec playerctl stop
-bindcode 173 exec playerctl previous
-bindcode 171 exec playerctl next
+bindcode 173 exec playerctl previous && notify-send "Playing now:" "$(playerctl metadata xesam:artist) - $(playerctl metadata xesam:title)"
+bindcode 171 exec playerctl next && notify-send "Playing now:" "$(playerctl metadata xesam:artist) - $(playerctl metadata xesam:title)"
 bindcode 209 exec playerctl play-pause
 bindcode 208 exec playerctl play-pause
+
+bindsym $mod+F5 exec playerctl play-pause
+bindsym $mod+F6 exec playerctl stop
+bindsym $mod+F7 exec playerctl previous && notify-send "Playing now:" "$(playerctl metadata xesam:artist) - $(playerctl metadata xesam:title)"
+bindsym $mod+F8 exec playerctl next     && notify-send "Playing now:" "$(playerctl metadata xesam:artist) - $(playerctl metadata xesam:title)"
 
 # Keepass
 for_window [title="KeePassXC"] floating enable, resize set 1100px 600px, move position center
